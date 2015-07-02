@@ -34,6 +34,22 @@ describe("#getWinner", function() {
       expect(getWinner(playerMove,'scissors')).toEqual('player');
     });
   });
+
+  describe("when the player picks rock", function() {
+    beforeEach(function(){
+      playerMove = "scissors";
+    });
+    it("should be a tie if the computer picks rock", function() {
+      expect(getWinner(playerMove,'rock')).toEqual('computer');
+    });
+    it("should be a computer win if the computer picks paper", function() {
+      expect(getWinner(playerMove,'paper')).toEqual('player');
+    });
+    it("should be a player win if the computer picks scissors", function() {
+      expect(getWinner(playerMove,'scissors')).toEqual('tie');
+    });
+  });
+
   describe("when the player picks paper", function() {
     beforeEach(function(){
       playerMove = "paper";
